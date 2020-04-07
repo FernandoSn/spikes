@@ -1,7 +1,7 @@
 
 
 function spikeStruct = loadKSdir(ksDir, varargin)
-
+%
 if ~isempty(varargin)
     params = varargin{1};
 else
