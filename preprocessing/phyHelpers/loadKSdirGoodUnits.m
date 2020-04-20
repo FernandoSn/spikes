@@ -54,6 +54,7 @@ if ~isempty(cgsFile)
         MUAClusters = cids(cgs==1);
 
         st = st(~ismember(clu, MUAClusters));
+        ss = ss(~ismember(clu, MUAClusters));
         spikeTemplates = spikeTemplates(~ismember(clu, MUAClusters));
         tempScalingAmps = tempScalingAmps(~ismember(clu, MUAClusters));        
         
@@ -74,6 +75,7 @@ if ~isempty(cgsFile)
         noiseClusters = cids(cgs==0);
 
         st = st(~ismember(clu, noiseClusters));
+        ss = ss(~ismember(clu, noiseClusters));
         spikeTemplates = spikeTemplates(~ismember(clu, noiseClusters));
         tempScalingAmps = tempScalingAmps(~ismember(clu, noiseClusters));        
         
@@ -104,6 +106,7 @@ temps = readNPY(fullfile(ksDir, 'templates.npy'));
 winv = readNPY(fullfile(ksDir, 'whitening_mat_inv.npy'));
 
 spikeStruct.st = st;
+spikeStruct.ss = ss;
 spikeStruct.spikeTemplates = spikeTemplates;
 spikeStruct.clu = clu;
 spikeStruct.tempScalingAmps = tempScalingAmps;
